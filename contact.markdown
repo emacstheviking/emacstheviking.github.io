@@ -2,6 +2,8 @@
 title: Contact
 ---
 
+<img src="images/Email-Overload.jpg" align="right" />
+
 If it's about a project in one of my GitHub repositories then use
 whatever means are currently available i.e. the issue system and I
 will receive it in due course.
