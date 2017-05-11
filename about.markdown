@@ -2,6 +2,10 @@
 title: About
 ---
 
+<div style="float:right;padding-left:10px;">
+![](./images/albertsays.jpg)
+</div>
+
 What's the point in an about page anyway?
 
 Assuming that didn't put you off then "Hi".
@@ -13,10 +17,6 @@ display anything resembling creative (or otherwise) output for other
 people to marvel at, plagiarise or take the piss out of depending upon
 their level of education and thus sense of being better than somebody
 else.
-
-<div style="float:right;padding-left:10px;">
-![](./images/albertsays.jpg)
-</div>
 
 Not always the case but... education is the key to lifting the planet
 into the next stage of being but with increased education comes a
