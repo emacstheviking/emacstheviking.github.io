@@ -16,11 +16,12 @@ body {
     color: black;
     font-size: 16px;
     margin: 0px auto 0px auto;
+    padding: 0px;
 }
 
 div#header {
     margin-bottom: 0px;
-    padding: 50px;
+    padding: 30px;
     background: linear-gradient(to right,#19111f 0%,#2c1e37 100%);
 }
 
@@ -34,7 +35,7 @@ div#logo a {
 }
 
 div#header #navigation {
-    text-align: right;
+    text-align: left;
 }
 
 div#header #navigation a {
