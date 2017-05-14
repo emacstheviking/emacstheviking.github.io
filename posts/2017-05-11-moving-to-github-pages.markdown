@@ -1,5 +1,6 @@
 ----
 title: Moving to GitHub Pages
+tags: general, github
 ----
 
 <div style="float:right; padding-left:20px;">![](/images/rwh-200.jpg)</div>
