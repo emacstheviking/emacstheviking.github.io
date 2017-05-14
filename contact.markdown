@@ -1,9 +1,10 @@
 ---
 title: Contact
 ---
+# Contact!
 
-<img src="images/Email-Overload.jpg" align="right" />
-
+<div class="row">
+<div class="col-sm-6">
 ### If...
 
 it's about a project in one of my GitHub repositories then use
@@ -21,3 +22,8 @@ For those in the know, you know what to do about it, if you are not
 sure, [this page might help.](https://www.base64decode.org/)
 
 Thanks for dropping by.
+</div>
+<div class="col-sm-6">
+<img src="images/Email-Overload.jpg" align="left" />
+</div>
+</div>
