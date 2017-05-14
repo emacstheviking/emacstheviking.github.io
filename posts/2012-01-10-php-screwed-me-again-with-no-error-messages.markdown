@@ -21,7 +21,9 @@ Anyway, I tracked the problem to a piece of code that I had
 transcribed incorrectly from the WP codex page, don't ask me why I
 hadn't cut and pasted it directly from the page as I normally do, but
 here's what I had and what I should have have had...
-<div style="margin: -20px; padding-left:20px;">
+
+
+<div style="clear:both; padding-left:20px;">
 <div class="row">
 <div class="col-sm-5">
 BAD CODE
