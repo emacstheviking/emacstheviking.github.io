@@ -55,20 +55,54 @@
 
     <div class="container">
       <div class="posting">
-  <div style="float:right; padding-left:20px;">
-<img src="../images/rwh-200.jpg" />
+  <h1 id="php-screwed-me-again">PHP Screwed Me Again</h1>
+<p><img src="../images/porridge_fletch.jpg" align="left" style="padding: 0 10px 10px 0" /></p>
+<p>I was writing a WordPress plugin this time, and as the venerable Fletcher might have said, “You wanna stay away from nonces Gobber, bad news they are.” My code had created a meta-box to allow me to tick / untick a simple check-box against pages and posts so that I could restrict content to registered users.</p>
+<p>Every time I hit the “update” button I got the lovely little error box telling me there was a problem saving my post and to try again. Thanks WP, very helpful.</p>
+<p>Anyway, I tracked the problem to a piece of code that I had transcribed incorrectly from the WP codex page, don’t ask me why I hadn’t cut and pasted it directly from the page as I normally do, but here’s what I had and what I should have have had…</p>
+<div style="clear:both; padding-left:20px;">
+<div class="row">
+<div class="col-sm-5">
+<p>BAD CODE</p>
+<div class="sourceCode"><table class="sourceCode php numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+</pre></td><td class="sourceCode"><pre><code class="sourceCode php">wp_nonce_field
+  plugin_basename<span class="ot">(</span>
+    <span class="kw">__FILE__</span><span class="ot">,</span> <span class="st">'tnjpay_restricted_nonce'</span>
+  <span class="ot">),</span>
+<span class="ot">);</span></code></pre></td></tr></table></div>
 </div>
-<h1 id="moving-to-github-pages">Moving to GitHub Pages</h1>
-<p>I’ve been pondering it for a while as well as using a more simple approach to authoring stuff when I can be bothered. To be honest the web is full of stuff and I don’t know that mine is any better (or worse I guess) but now and then when I get the urge to say something, it’ll be here.</p>
-<p>Having bought a copy of Real World Haskell in 2008, I am <em>still learning</em> Haskell and so I decided to use Hakyll for this project as it feels like a good solution; a lean mean site-making machine.</p>
-<p>So there we have it.</p>
+<div class="col-sm-7">
+<p>GOOD CODE</p>
+<div class="sourceCode"><table class="sourceCode php numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+</pre></td><td class="sourceCode"><pre><code class="sourceCode php">wp_nonce_field<span class="ot">(</span>
+  plugin_basename<span class="ot">(</span><span class="kw">__FILE__</span><span class="ot">),</span>
+  <span class="st">'tnjpay_restricted_nonce'</span>
+<span class="ot">);</span></code></pre></td></tr></table></div>
+</div>
+</div>
+</div>
+<p>Simple, and subtle, but in the cut-and-thrust I just couldn’t see that one little mistake; that I had accidentally put the nonce identifier inside the call to <code>plugin_basename</code> instead of as the second parameter to <code>wp_nonce_field</code>.</p>
+<p>And PHP never said a mumbling word.</p>
+<p>Thanks PHP.</p>
+<p>Admittedly the <code>wp_nonce_field</code> takes four parameters and they are all optional so that function I will forgive, but plugin_basename takes one and exactly one parameter but because of the incredibly slack (and useful) way in which PHP lets you pass arguments around, it never complained. Is there some kind of configuration file setting that would have moaned at me for having given it too much to eat? That would have at least saved some head-scratching!</p>
+<p>If I was being very strict then I would insist that all functions that are not variadic should do this as the first line of code inside the stack frame:</p>
+<div class="sourceCode"><pre class="sourceCode php"><code class="sourceCode php"><span class="fu">assert</span><span class="ot">(</span><span class="fu">count</span><span class="ot">(</span><span class="fu">func_get_args</span><span class="ot">(),</span> <span class="kw">N</span><span class="ot">));</span></code></pre></div>
+<p>It’s a shame that PHP doesn’t have a pre-processor. I have used m4 with PHP in the past but on production sites not everybody knows how to use m4 or why it’s even useful! Whatever.</p>
+<p>I will not make that particular mistake again, at least not today with the WP API.</p>
   <div class="info">
-    Posted on May 11, 2017
+    Posted on January 10, 2012
     
   </div>
     <div class="info">
     
-    Tags: <a href="../tags/general.html">general</a>, <a href="../tags/github.html">github</a>
+    Tags: <a href="../tags/php.html">php</a>, <a href="../tags/programming.html">programming</a>, <a href="../tags/wordpress.html">wordpress</a>
     
   </div>
 </div>
